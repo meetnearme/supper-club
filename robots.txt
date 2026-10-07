@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /tickets
+Disallow: /thank-you

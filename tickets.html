@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow, noarchive" />
+    <meta name="theme-color" content="#293e32" />
+    <title>Your invitation — The Redding Supper Club</title>
+    <link rel="icon" href="assets/emblem.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="tickets.js" defer></script>
+  </head>
+  <body>
+    <header class="border-b border-line">
+      <div class="page-wrap flex min-h-[100px] flex-wrap items-center justify-between gap-5 py-5">
+        <a href="./" class="flex items-center gap-3" aria-label="The Redding Supper Club home">
+          <img src="assets/emblem.svg" alt="" width="52" height="52" class="h-[52px] w-[52px]" />
+          <span><span class="brand-name block font-display text-forest">Redding</span><span class="brand-subtitle block font-medium uppercase text-forest">Supper Club</span></span>
+        </a>
+        <span class="eyebrow text-olive">For invited guests</span>
+      </div>
+    </header>
+    <main class="page-wrap py-12 md:py-16">
+      <div class="mx-auto mb-10 max-w-2xl text-center">
+        <p class="eyebrow mb-5 text-olive">Your invitation to the table</p>
+        <h1 class="section-heading text-forest">Good company.<br/><em>A seat with your name on it.</em></h1>
+        <p class="mx-auto mt-6 max-w-lg text-[14px] leading-[1.9] text-muted">We’re glad you’ll be joining us. Review the final dinner details and reserve your seat with Meet Near Me below.</p>
+      </div>
+      <section class="border border-line bg-white/40 p-3 sm:p-6" aria-label="Meet Near Me event details and ticketing">
+        <p class="mb-4 text-center text-[10px] text-muted">Event details, reservations, and payments are handled by Meet Near Me.</p>
+        <p id="ticketing-error" class="mb-5 border-l-2 border-rust bg-paper p-4 text-[13px] leading-[1.8]" role="status" hidden>We couldn’t load the ticketing experience. Please refresh this page or <a href="mailto:brian@meetnear.me" class="underline">email Brian</a> for help.</p>
+        <script id="mnm-embed-script" src="https://static.meetnear.me/static/assets/embed.js" data-user-id="394007099018847381" data-event-owners="394007099018847381" data-location="lat=40.575413&amp;location=Redding%2C+CA&amp;lon=-122.383612" data-radius="25000" defer></script>
+        <noscript><p class="p-5 text-center text-sm leading-relaxed">Please enable JavaScript to use the Meet Near Me ticketing experience, or <a href="mailto:brian@meetnear.me" class="underline">contact Brian</a> for help with your invitation.</p></noscript>
+      </section>
+      <p class="mt-7 text-center text-[12px] leading-[1.8] text-muted">Questions about your invitation? <a href="mailto:brian@meetnear.me" class="text-forest underline underline-offset-4">Email Brian.</a></p>
+    </main>
+    <footer class="page-wrap border-t border-line py-7 text-center text-[10px] text-muted">The Redding Supper Club · Meet Near Me × SmartLemon</footer>
+  </body>
+</html>

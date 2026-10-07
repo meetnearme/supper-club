@@ -1,0 +1,27 @@
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[redirects]]
+  from = "/tickets"
+  to = "/tickets.html"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/tickets/"
+  to = "/tickets"
+  status = 301
+
+[[headers]]
+  for = "/tickets"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"
+
+[[headers]]
+  for = "/tickets.html"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow, noarchive"

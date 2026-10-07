@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#293e32" />
+    <meta name="description" content="An evening of good food and better questions. Join a thoughtfully hosted table of 16–20 builders, leaders, and curious people at Trilogy Guild in Redding." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="The Redding Supper Club — Good food. Better questions." />
+    <meta property="og:description" content="Redding has interesting people you haven't met yet. A small, curated dinner hosted by Meet Near Me × SmartLemon." />
+    <meta property="og:image" content="assets/dinner-table.jpg" />
+    <title>The Redding Supper Club — Good food. Better questions.</title>
+    <link rel="icon" href="assets/emblem.svg" type="image/svg+xml" />
+    <link rel="preload" href="assets/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a href="#main" class="fixed left-4 top-4 z-50 -translate-y-24 bg-forest px-5 py-3 text-sm text-linen focus:translate-y-0">Skip to content</a>
+
+    <svg xmlns="http://www.w3.org/2000/svg" class="hidden" aria-hidden="true">
+      <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M4 12h15m-5-5 5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="icon-down" viewBox="0 0 24 24"><path d="M12 4v15m-5-5 5 5 5-5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><path d="M12 1.5v21M1.5 12h21M4.6 4.6l14.8 14.8M4.6 19.4 19.4 4.6" fill="none" stroke="currentColor" stroke-width="1.3" /></symbol>
+      <symbol id="icon-calendar" viewBox="0 0 24 24"><rect x="4" y="5.5" width="16" height="15" rx="1" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M8 3.5v4m8-4v4M4 10h16m-12 4h3m2 0h3m-8 3h3" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24"><path d="M19 10c0 5-7 11-7 11S5 15 5 10a7 7 0 1 1 14 0Z" fill="none" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="10" r="2.3" fill="none" stroke="currentColor" stroke-width="1.3" /></symbol>
+      <symbol id="icon-people" viewBox="0 0 24 24"><circle cx="9" cy="7" r="3" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M3 20v-3a6 6 0 0 1 12 0v3m1-15a3 3 0 0 1 0 6m2 3a5 5 0 0 1 3 5v1" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></symbol>
+      <symbol id="icon-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" /></symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round" /></symbol>
+    </svg>
+
+    <div class="border-b border-line py-2.5 text-center">
+      <p class="text-[9px] font-medium uppercase tracking-[0.22em] text-olive">Rooted in Redding. Open to what’s next.</p>
+    </div>
+
+    <header class="site-header">
+      <div class="page-wrap flex h-[100px] items-center justify-between gap-6 md:h-[112px]">
+        <a href="./" class="flex flex-none items-center gap-3" aria-label="The Redding Supper Club home">
+          <img src="assets/emblem.svg" alt="" width="58" height="58" class="h-[52px] w-[52px] md:h-[58px] md:w-[58px]" />
+          <span><span class="brand-name block font-display text-forest">Redding</span><span class="brand-subtitle block font-medium uppercase text-forest">Supper Club</span></span>
+        </a>
+        <nav aria-label="Main navigation" class="hidden items-center gap-8 lg:flex">
+          <a href="#the-evening" class="text-[12px] text-muted transition-colors hover:text-rust">The evening</a>
+          <a href="#the-table" class="text-[12px] text-muted transition-colors hover:text-rust">The table</a>
+          <a href="#your-hosts" class="text-[12px] text-muted transition-colors hover:text-rust">Your hosts</a>
+          <button class="button-primary !min-h-[44px] !gap-5 !px-5 !py-3" data-open-invite>Request an invitation <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+        </nav>
+        <button id="menu-toggle" type="button" class="flex h-11 w-11 items-center justify-center border border-line lg:hidden" aria-label="Open navigation" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M4 8h16M4 16h16" /></svg>
+        </button>
+      </div>
+      <nav id="mobile-menu" class="mobile-menu absolute left-0 right-0 border-y border-line bg-linen px-6 py-6 shadow-lg lg:hidden" aria-label="Mobile navigation" hidden>
+        <div class="flex flex-col gap-5 text-sm">
+          <a href="#the-evening">The evening</a><a href="#the-table">The table</a><a href="#your-hosts">Your hosts</a>
+          <button class="button-primary self-start" data-open-invite>Request an invitation <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+        </div>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="page-wrap pb-10 pt-7 md:pb-12 md:pt-9 lg:pt-12" aria-labelledby="hero-heading">
+        <div class="grid items-center gap-14 md:grid-cols-[1.02fr_1fr] md:gap-10 lg:gap-14">
+          <div class="pb-1 md:py-5">
+            <p class="eyebrow mb-6 flex items-center gap-3 text-olive"><span class="h-[5px] w-[5px] rounded-full bg-rust"></span>A small table. A bigger perspective.</p>
+            <h1 id="hero-heading" class="hero-title font-display text-forest"><span class="block">Good food.</span><em class="block font-normal">Better questions.</em></h1>
+            <p class="mt-7 max-w-[390px] text-[15px] leading-[1.8] text-muted">Redding has interesting people you haven’t met yet. Join them for a thoughtfully hosted dinner—and a conversation worth having.</p>
+            <div class="mt-8 flex flex-wrap items-center gap-x-7 gap-y-5">
+              <button class="button-primary" data-open-invite>Request an invitation <svg class="h-[19px] w-[19px]" aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+              <a href="#the-evening" class="flex items-center gap-2 text-[12px] font-medium text-forest">Meet the evening <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-down" /></svg></a>
+            </div>
+            <p class="mt-3 text-[10px] text-muted">16–20 seats. Thoughtfully brought together.</p>
+            <div class="mt-10 md:mt-12">
+              <p class="mb-3 text-[8px] font-medium uppercase tracking-[0.2em] text-muted">Brought to the table by</p>
+              <div class="flex items-center gap-4">
+                <a href="https://meetnear.me/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[12px] font-semibold text-forest hover:text-rust"><img src="assets/meet-near-me-logo.svg" alt="" class="h-7 w-7" width="28" height="28" />Meet Near Me</a>
+                <span class="text-sm text-olive" aria-label="and">×</span>
+                <a href="https://www.smartlemon.io/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2 text-[12px] font-semibold text-forest hover:text-rust"><img src="assets/smartlemon-logo.jpg" alt="" class="h-8 w-8 mix-blend-multiply" width="32" height="32" />SmartLemon</a>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual mb-3 mt-1 md:mb-0 md:mt-0">
+            <img src="assets/dinner-table.jpg" alt="A welcoming wooden dinner table set with flowers, glasses, and places for good company" class="hero-image w-full object-cover" width="1400" height="935" fetchpriority="high" />
+            <svg class="curiosity-seal absolute -right-5 -top-7 z-10 lg:-right-6" viewBox="0 0 120 120" aria-label="Come curious. Leave inspired." role="img">
+              <defs><path id="seal-top" d="M 18 60 a 42 42 0 1 1 84 0"/><path id="seal-bottom" d="M 13 60 a 47 47 0 0 0 94 0"/></defs>
+              <circle cx="60" cy="60" r="59" fill="#9d4f38"/><circle cx="60" cy="60" r="53" fill="none" stroke="#f7f5ee" stroke-opacity=".55" stroke-width=".6"/>
+              <text><textPath href="#seal-top" startOffset="50%" text-anchor="middle">COME CURIOUS</textPath></text>
+              <text><textPath href="#seal-bottom" startOffset="50%" text-anchor="middle">LEAVE INSPIRED</textPath></text>
+              <path d="M60 39v42M39 60h42M45 45l30 30M45 75l30-30" stroke="#f7f5ee" stroke-width="1.1"/>
+              <circle cx="60" cy="60" r="8" fill="#9d4f38" stroke="#f7f5ee" stroke-width="1"/>
+            </svg>
+            <div class="date-card photo-caption absolute bottom-6 left-6 flex items-center gap-5 bg-linen px-5 py-4 sm:bottom-7 sm:left-7 sm:px-6">
+              <div class="border-r border-line pr-5 text-center"><span class="block text-[9px] font-semibold uppercase tracking-[0.15em] text-olive">October</span><span class="block font-display text-[42px] leading-[1.05] text-forest">01</span></div>
+              <div><p class="text-[12px] font-medium text-forest">A seat at something good.</p><p class="mt-1.5 text-[10px] text-muted">Trilogy Guild · Redding, CA</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-12 grid grid-cols-2 gap-x-6 gap-y-7 border-y border-line py-6 md:mt-14 md:grid-cols-4 md:py-7">
+          <div class="flex items-center gap-3 md:justify-center"><svg class="h-[22px] w-[22px] flex-none text-olive" aria-hidden="true"><use href="#icon-calendar" /></svg><div><p class="text-[8px] uppercase tracking-[0.14em] text-muted">Save the date</p><p class="mt-1 text-[12px] font-medium"><time datetime="2026-10-01">Thursday, October 1, 2026</time></p></div></div>
+          <div class="flex items-center gap-3 md:justify-center"><svg class="h-[22px] w-[22px] flex-none text-olive" aria-hidden="true"><use href="#icon-pin" /></svg><div><p class="text-[8px] uppercase tracking-[0.14em] text-muted">The gathering place</p><p class="mt-1 text-[12px] font-medium">Trilogy Guild, Redding</p></div></div>
+          <div class="flex items-center gap-3 md:justify-center"><svg class="h-[22px] w-[22px] flex-none text-olive" aria-hidden="true"><use href="#icon-people" /></svg><div><p class="text-[8px] uppercase tracking-[0.14em] text-muted">Small on purpose</p><p class="mt-1 text-[12px] font-medium">16–20 people</p></div></div>
+          <div class="flex items-center gap-3 md:justify-center"><svg class="h-[22px] w-[22px] flex-none text-olive" aria-hidden="true"><use href="#icon-clock" /></svg><div><p class="text-[8px] uppercase tracking-[0.14em] text-muted">Settle in</p><p class="mt-1 text-[12px] font-medium">2½–3 unhurried hours</p></div></div>
+        </div>
+      </section>
+
+      <div class="marquee-note py-5">
+        <div class="page-wrap flex flex-wrap items-center justify-center gap-x-6 gap-y-2 text-center text-[10px] font-medium tracking-[0.025em] text-forest sm:gap-x-10 sm:text-[11px]">
+          <span>No keynote.</span><svg class="little-star" aria-hidden="true"><use href="#icon-star" /></svg><span>No pitches.</span><svg class="little-star" aria-hidden="true"><use href="#icon-star" /></svg><span>No networking circuit.</span><svg class="little-star hidden sm:block" aria-hidden="true"><use href="#icon-star" /></svg><span class="hidden sm:block">Just a really good table.</span>
+        </div>
+      </div>
+
+      <section id="the-evening" class="page-wrap py-20 md:py-24 lg:py-28" aria-labelledby="evening-heading">
+        <div class="reveal grid items-center gap-12 md:grid-cols-[.95fr_1fr] md:gap-16 lg:gap-24">
+          <div class="relative pb-5 pr-5 sm:pr-9">
+            <img src="assets/shared-dinner.jpg" alt="Dinner being shared over a candlelit restaurant table" width="1100" height="733" loading="lazy" class="evening-image h-[335px] w-full object-cover sm:h-[395px]" />
+            <div class="absolute -bottom-1 right-0 max-w-[270px] bg-paper px-7 py-6"><p class="font-display text-[28px] leading-[1.2] text-forest">“Leave with perspective,<br/><em>not just contacts.</em>”</p></div>
+          </div>
+          <div>
+            <p class="eyebrow mb-5 text-olive">01 / A different kind of evening</p>
+            <h2 id="evening-heading" class="section-heading text-forest">Less working the room.<br/><em>More finding your people.</em></h2>
+            <p class="mt-6 text-[14px] leading-[1.9] text-muted">Some of the best ideas start with a conversation you didn’t expect. We’re making a little more room for those.</p>
+            <p class="mt-4 text-[14px] leading-[1.9] text-muted">The Redding Supper Club is a curated, hosted dinner for people building businesses, improving organizations, creating useful work, and shaping life in the North State and beyond.</p>
+            <p class="mt-4 text-[14px] leading-[1.9] text-muted">We put care into who sits together, offer thoughtful introductions, and let good food and better questions do the rest.</p>
+            <a href="#the-table" class="text-link mt-6">A little intention goes a long way <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-arrow" /></svg></a>
+          </div>
+        </div>
+      </section>
+
+      <section class="topic-section bg-forest text-linen" aria-labelledby="topic-heading">
+        <div class="page-wrap relative grid items-center gap-10 py-14 md:grid-cols-[1fr_280px] md:py-16 lg:gap-20">
+          <div class="reveal">
+            <p class="eyebrow mb-5 text-[#c1c7ab]">On the menu / Our conversation starter</p>
+            <h2 id="topic-heading" class="font-display text-[46px] leading-[1.06] tracking-[-0.015em] sm:text-[58px] lg:text-[67px]">Less busywork.<br/><em>More meaningful work.</em></h2>
+            <p class="mt-6 max-w-[550px] text-[13px] leading-[1.9] text-linen/75">Where can AI and automation actually give us time back—and what should stay human? A practical conversation about doing better work, from the shop floor to the small business to the creative studio.</p>
+            <p class="mt-5 flex items-center gap-2 text-[10px] tracking-wide text-[#c1c7ab]"><svg class="h-3.5 w-3.5" aria-hidden="true"><use href="#icon-star" /></svg>Curiosity required. Technical expertise optional.</p>
+          </div>
+          <svg class="topic-art mx-auto hidden md:block" viewBox="0 0 300 310" fill="none" aria-hidden="true">
+            <g stroke="#c1c7ab" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="150" cy="153" r="99"/><circle cx="150" cy="153" r="89"/><circle cx="150" cy="153" r="64"/>
+              <path d="M24 64v54m-9-54v36q0 10 9 10t9-10V64m-9 54v127M271 64c-13 16-15 40-15 57h15m0-57v181"/>
+              <path d="m128 127 2-10 14-3 6 8 10 2 8-6 12 8-2 10 5 9 10 3-1 14-10 3-7 7 2 10-13 7-7-7-10-1-7 7-13-7 1-10-6-8-10-3 1-14 10-3 5-9Z"/>
+              <circle cx="149" cy="150" r="18"/><circle cx="149" cy="150" r="6"/>
+              <path d="m124 188 20-16 19 8 20-19M150 24v12m-6-6h12M89 281h122"/>
+              <path d="M185 92c-5-21 10-33 17-40 5 17 4 32-17 40Zm0 0c2-13 8-24 13-33M111 217c0 22-18 30-27 33-1-18 4-32 27-33Zm0 0c-6 12-14 21-21 26"/>
+              <path d="m63 25 5 10 11 2-8 8 1 11-9-5-10 5 2-11-8-8 11-2 5-10Z" stroke-width=".7"/>
+            </g>
+            <text x="150" y="294" fill="#c1c7ab" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="8" letter-spacing="3">HUMAN CONNECTION, FIRST.</text>
+          </svg>
+        </div>
+      </section>
+
+      <section id="the-table" class="page-wrap py-20 md:py-24 lg:py-28" aria-labelledby="table-heading">
+        <div class="reveal grid gap-12 md:grid-cols-2 md:gap-16 lg:gap-24">
+          <div>
+            <p class="eyebrow mb-5 text-olive">02 / It’s all in the mix</p>
+            <h2 id="table-heading" class="section-heading text-forest">Different worlds.<br/><em>One shared table.</em></h2>
+            <p class="mt-6 max-w-[420px] text-[14px] leading-[1.9] text-muted">A great table isn’t eight versions of the same person. It’s a mix of experiences, industries, and ways of seeing the world.</p>
+            <p class="mt-4 max-w-[420px] text-[14px] leading-[1.9] text-muted">You might sit beside a local business owner, a healthcare leader, a software builder, or someone making something with their hands. The common thread? Doing meaningful things—and being open to other perspectives.</p>
+            <p class="mt-6 border-l-2 border-rust pl-4 text-[12px] leading-[1.8] text-forest">Thoughtful curation, not exclusivity.<br/>You don’t need a title. Just something you care about.</p>
+          </div>
+          <div class="flex flex-col justify-center bg-paper/55 px-6 py-8 sm:px-9">
+            <div class="mb-6 flex items-center justify-between gap-4"><p class="eyebrow text-olive">A table might look like this</p><span class="font-display text-[28px] italic text-rust">8 perspectives</span></div>
+            <div class="grid grid-cols-2 gap-x-7">
+              <p class="seat-tag"><span class="mr-2 text-[9px] text-olive">01</span>Local business</p><p class="seat-tag"><span class="mr-2 text-[9px] text-olive">02</span>Health & education</p>
+              <p class="seat-tag"><span class="mr-2 text-[9px] text-olive">03</span>Tech & design</p><p class="seat-tag"><span class="mr-2 text-[9px] text-olive">04</span>Trades & industry</p>
+              <p class="seat-tag"><span class="mr-2 text-[9px] text-olive">05</span>Founders & creators</p><p class="seat-tag"><span class="mr-2 text-[9px] text-olive">06</span>Civic & nonprofit</p>
+              <p class="seat-tag"><span class="mr-2 text-[9px] text-olive">07</span>Culture & hospitality</p><p class="seat-tag"><span class="mr-2 text-[9px] text-olive">08</span>The unexpected</p>
+            </div>
+            <div class="mt-7 flex items-start gap-3"><svg class="mt-1 h-4 w-4 flex-none text-rust" aria-hidden="true"><use href="#icon-star" /></svg><p class="text-[11px] leading-[1.8] text-muted">Builders, operators, independent professionals, and wonderfully hard-to-categorize people. There’s room for all kinds of useful work.</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="border-y border-line bg-paper/40" aria-labelledby="how-heading">
+        <div class="page-wrap py-14 md:py-16">
+          <div class="mb-10 flex flex-wrap items-end justify-between gap-5"><div><p class="eyebrow mb-3 text-olive">A little care, from the start</p><h2 id="how-heading" class="font-display text-[42px] leading-tight text-forest">An easy way to <em>find your seat.</em></h2></div><p class="max-w-[250px] text-[12px] leading-[1.8] text-muted">We take care of the introductions.<br/>You bring yourself.</p></div>
+          <ol class="grid gap-8 md:grid-cols-3 md:gap-10">
+            <li class="reveal border-t border-line pt-5"><span class="font-display text-[28px] italic text-rust">01.</span><h3 class="mt-3 text-[14px] font-medium">Tell us a little about you.</h3><p class="mt-2 text-[12px] leading-[1.9] text-muted">Leave your email to request an invitation. You can also share what you’re working on and what you’re curious about.</p></li>
+            <li class="reveal border-t border-line pt-5"><span class="font-display text-[28px] italic text-rust">02.</span><h3 class="mt-3 text-[14px] font-medium">We bring the table together.</h3><p class="mt-2 text-[12px] leading-[1.9] text-muted">Brian and Benji personally review requests. If invited, you’ll receive a private ticket link and have 48 hours to confirm.</p></li>
+            <li class="reveal border-t border-line pt-5"><span class="font-display text-[28px] italic text-rust">03.</span><h3 class="mt-3 text-[14px] font-medium">Come hungry. Leave inspired.</h3><p class="mt-2 text-[12px] leading-[1.9] text-muted">Settle in for dinner, warm introductions, and a few hours of conversation that goes somewhere.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="your-hosts" class="page-wrap py-20 md:py-24 lg:py-28" aria-labelledby="hosts-heading">
+        <div class="reveal mb-10 flex flex-wrap items-end justify-between gap-6 md:mb-12"><div><p class="eyebrow mb-5 text-olive">03 / Your hosts</p><h2 id="hosts-heading" class="section-heading text-forest">Good company starts<br/><em>with a warm welcome.</em></h2></div><p class="max-w-[290px] text-[13px] leading-[1.9] text-muted">Two people who believe that the right conversation can change what comes next.</p></div>
+        <div class="grid gap-5 md:grid-cols-2 md:gap-7">
+          <article class="host-card reveal">
+            <div class="flex items-center justify-between gap-4"><span class="host-monogram" aria-label="Brian Feister’s initials">BF</span><a href="https://meetnear.me/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-[13px] font-semibold hover:text-rust"><img src="assets/meet-near-me-logo.svg" alt="" width="32" height="32" class="h-8 w-8" />Meet Near Me</a></div>
+            <h3 class="mt-7 font-display text-[36px] leading-tight text-forest">Brian Feister</h3>
+            <p class="mt-1 text-[10px] font-medium uppercase tracking-[0.13em] text-olive">Your host from Meet Near Me</p>
+            <p class="mb-7 mt-5 text-[13px] leading-[1.9] text-muted">Bringing people together with intention. Brian brings the Meet Near Me perspective to the evening: thoughtful introductions, shared curiosity, and connections that feel genuinely human.</p>
+            <a href="https://www.linkedin.com/in/brianfeister" target="_blank" rel="noopener noreferrer" class="text-link mt-auto self-start">Meet Brian on LinkedIn <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-external" /></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+          <article class="host-card reveal">
+            <div class="flex items-center justify-between gap-4"><span class="host-monogram" aria-label="Benji Loschen’s initials">BL</span><a href="https://www.smartlemon.io/" target="_blank" rel="noopener noreferrer" class="flex items-center gap-2.5 text-[13px] font-semibold hover:text-rust"><img src="assets/smartlemon-logo.jpg" alt="" width="40" height="40" class="h-10 w-10 mix-blend-multiply" />SmartLemon</a></div>
+            <h3 class="mt-7 font-display text-[36px] leading-tight text-forest">Benji Loschen</h3>
+            <p class="mt-1 text-[10px] font-medium uppercase tracking-[0.13em] text-olive">Your host from SmartLemon</p>
+            <p class="mb-7 mt-5 text-[13px] leading-[1.9] text-muted">A founder, builder, and the person behind SmartLemon. Benji works across AI, automation, websites, and business operations—and brings a practical curiosity about making work better.</p>
+            <a href="https://www.linkedin.com/in/benji-loschen/" target="_blank" rel="noopener noreferrer" class="text-link mt-auto self-start">Meet Benji on LinkedIn <svg class="h-4 w-4" aria-hidden="true"><use href="#icon-external" /></svg><span class="sr-only"> (opens in a new tab)</span></a>
+          </article>
+        </div>
+      </section>
+
+      <section class="page-wrap border-t border-line pb-20 pt-16 md:pb-24 md:pt-20" aria-labelledby="faq-heading">
+        <div class="grid gap-8 md:grid-cols-[.7fr_1fr] md:gap-16 lg:gap-24">
+          <div><p class="eyebrow mb-5 text-olive">Before you pull up a chair</p><h2 id="faq-heading" class="section-heading text-forest">A few<br/><em>good questions.</em></h2></div>
+          <div>
+            <details class="faq-item" open><summary>What does a seat cost?</summary><div class="faq-answer">Pricing is being finalized. We’re planning for dinner at approximately $45–$75 per person, plus a $15 hosting fee—an estimated $60–$90 total. Your invitation will include the exact dinner-inclusive ticket price and what’s included before you confirm. Requesting an invitation is free.</div></details>
+            <details class="faq-item"><summary>Is this for me?</summary><div class="faq-answer">If you’re building, leading, making, or rethinking what comes next, we’d love to hear from you. Founders, operators, independent professionals, creative business owners, tradespeople, and people doing meaningful local work are all welcome. Curiosity matters more than your job title.</div></details>
+            <details class="faq-item"><summary>Why request an invitation?</summary><div class="faq-answer">There are only 16–20 seats, and the mix of people matters. A few details help your hosts bring together different industries, experiences, and perspectives. It’s about a high-quality table, not exclusivity for its own sake. A request doesn’t guarantee a seat.</div></details>
+            <details class="faq-item"><summary>What happens after I request?</summary><div class="faq-answer">Your request goes to Brian and Benji for personal review. A request is not an invitation or a reserved seat. If you’re invited, your hosts will privately email you a Meet Near Me ticket link with the final price, start time, and dinner details. Please confirm within 48 hours of receiving your invitation so we can finalize the table.</div></details>
+            <details class="faq-item"><summary>Can you accommodate dietary needs?</summary><div class="faq-answer">Tell us about any allergies or dietary needs in your request. We’ll check with the venue and confirm what’s possible before you commit to your seat.</div></details>
+            <details class="faq-item"><summary>Do I need to prepare anything?</summary><div class="faq-answer">No slides, no pitch, and no homework. Come with an open mind, a little curiosity about the evening’s topic, and a willingness to listen as well as share. The dinner lasts approximately 2½–3 hours; the exact start time will be in your invitation.</div></details>
+          </div>
+        </div>
+      </section>
+
+      <section id="invitation" class="closing-section bg-forest text-center text-linen" aria-labelledby="invitation-heading">
+        <div class="page-wrap py-16 md:py-20">
+          <svg class="mx-auto mb-7 h-7 w-7 text-[#bfc7a9]" aria-hidden="true"><use href="#icon-star" /></svg>
+          <p class="eyebrow mb-5 text-[#c1c7ab]">Good food. New perspectives. Right here.</p>
+          <h2 id="invitation-heading" class="font-display text-[57px] leading-[1.05] tracking-[-0.025em] sm:text-[74px]">There’s a whole lot<br/>to bring <em>to the table.</em></h2>
+          <p class="mx-auto mt-5 max-w-[410px] text-[13px] leading-[1.9] text-linen/75">Let’s start with you. A few details help us make the evening feel like a table you were meant to find.</p>
+          <button class="button-light mt-8" data-open-invite>Request an invitation <svg class="h-[19px] w-[19px]" aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+          <p class="mt-4 text-[10px] text-linen/60">October 1, 2026 · Trilogy Guild · 16–20 seats</p>
+          <noscript><p class="mx-auto mt-5 max-w-md text-sm">To request an invitation, please contact <a href="https://www.linkedin.com/in/brianfeister" class="underline">Brian</a> or <a href="https://www.linkedin.com/in/benji-loschen/" class="underline">Benji</a> on LinkedIn.</p></noscript>
+        </div>
+      </section>
+    </main>
+
+    <footer class="page-wrap flex flex-col items-center justify-between gap-6 py-8 sm:flex-row">
+      <a href="./" class="flex items-center gap-2.5" aria-label="The Redding Supper Club home"><img src="assets/emblem.svg" alt="" width="38" height="38" class="h-[38px] w-[38px]"/><span class="font-display text-[22px] text-forest">The Redding Supper Club</span></a>
+      <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] text-muted"><span>Made for the North State.</span><a href="https://meetnear.me/" target="_blank" rel="noopener noreferrer" class="hover:text-rust">Meet Near Me</a><span>×</span><a href="https://www.linkedin.com/company/smartlemon/" target="_blank" rel="noopener noreferrer" class="hover:text-rust">SmartLemon</a><span>© 2026</span></div>
+    </footer>
+
+    <dialog id="invitation-dialog" class="invitation-dialog" aria-labelledby="dialog-heading" aria-describedby="dialog-description">
+      <div class="p-6 sm:p-9">
+        <div class="mb-5 flex items-center justify-between"><p class="eyebrow text-olive">A place at the table</p><button type="button" id="close-dialog" class="flex h-9 w-9 items-center justify-center border border-line text-xl font-light" aria-label="Close invitation request">×</button></div>
+        <h2 id="dialog-heading" class="font-display text-[43px] leading-tight text-forest">Let’s get <em>acquainted.</em></h2>
+        <p id="dialog-description" class="mb-7 mt-3 text-[13px] leading-[1.8] text-muted">Leave your email for Brian and Benji to review. A little context helps us bring together a thoughtful table for October 1 at Trilogy Guild.</p>
+        <form name="invitation-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" id="invitation-form">
+          <input type="hidden" name="form-name" value="invitation-request" />
+          <input type="hidden" name="subject" value="New Redding Supper Club invitation request" data-remove-prefix />
+          <p hidden><label>Leave this empty <input name="bot-field" tabindex="-1" autocomplete="off" /></label></p>
+          <div class="grid gap-5 sm:grid-cols-2"><div><label for="guest-email" class="form-label">Email address <span aria-hidden="true">*</span></label><input id="guest-email" class="form-input" name="email" type="email" autocomplete="email" maxlength="254" required autofocus placeholder="you@example.com" /></div><div><label for="guest-name" class="form-label">Your name <span class="font-normal text-muted">(optional)</span></label><input id="guest-name" class="form-input" name="name" autocomplete="name" maxlength="120" placeholder="First and last name" /></div></div>
+          <div class="mt-5"><label for="guest-work" class="form-label">What are you building, doing, or working on? <span class="font-normal text-muted">(optional)</span></label><textarea id="guest-work" class="form-input min-h-[95px] resize-y" name="work" maxlength="2000" rows="3" placeholder="A business, a project, a community, a next chapter…" ></textarea></div>
+          <div class="mt-5"><label for="guest-curiosity" class="form-label">What’s a question you’d bring to the table? <span class="font-normal text-muted">(optional)</span></label><input id="guest-curiosity" class="form-input" name="curiosity" maxlength="500" placeholder="Something you’ve been thinking about" /></div>
+          <div class="mt-5"><label for="guest-dietary" class="form-label">Allergies or dietary needs <span class="font-normal text-muted">(optional)</span></label><input id="guest-dietary" class="form-input" name="dietary" maxlength="500" placeholder="Anything we should know?" /></div>
+          <p class="mt-5 text-[11px] leading-[1.8] text-muted">Requesting is free. Estimated dinner-inclusive price: $60–$90, including a $15 hosting fee. Your hosts personally review every request and email approved guests a private ticket link. Your details are for organizing this dinner.</p>
+          <p id="form-status" class="form-status mt-4 border-l-2 border-rust bg-paper p-3 text-[12px] leading-[1.7]" role="status" aria-live="polite"></p>
+          <button type="submit" class="button-primary mt-6 w-full" id="submit-request">Send my request <svg class="h-[19px] w-[19px]" aria-hidden="true"><use href="#icon-arrow" /></svg></button>
+          <p class="mt-3 text-center text-[10px] text-muted">A request is a first hello, not a ticket purchase.</p>
+        </form>
+      </div>
+    </dialog>
+  </body>
+</html>
