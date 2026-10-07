@@ -23,6 +23,18 @@ npm run build
 
 The build refreshes `assets/styles.css` and stages the complete static site in `dist/`. The compiled stylesheet is already included, so simply viewing the page does not require npm. `npm run watch` refreshes CSS while editing.
 
+## Deployed routes
+
+Netlify serves clean URLs directly; no static-site framework is required:
+
+| URL | Served HTML |
+| --- | --- |
+| `/` | `index.html` |
+| `/tickets` | `tickets.html` |
+| `/thank-you` | `thank-you.html` |
+
+The secondary routes use explicit `200` rewrites in `netlify.toml`, so the browser keeps the clean URL. Netlify matches these rules with or without a trailing slash. Root-relative asset and home links keep both URL forms working. The event fragment (`#event/…`) is handled by the Meet Near Me embed in the browser.
+
 ## Invitation requests
 
 All invitation buttons open a keyboard-accessible native dialog. **Email is the only required field**; name, work, curiosity, and dietary requirements are optional. The form has native browser validation and a honeypot field.
@@ -31,7 +43,7 @@ The workflow is deliberately human-led:
 
 1. A visitor requests an invitation using the public landing page.
 2. **Netlify Forms** stores the request and emails it to **brian@meetnear.me** once the notification below is configured.
-3. The visitor sees `thank-you.html`, which confirms **pending personal review**. This page never links or redirects to ticketing.
+3. The visitor sees `/thank-you`, which confirms **pending personal review**. This page never links or redirects to ticketing.
 4. Brian reviews the request and makes the approval decision manually.
 5. Brian privately emails approved guests their invitation and the Meet Near Me ticket link.
 
@@ -98,7 +110,9 @@ See `BRAND.md` for the identity, palette, typography, voice, and draft advertise
 
 - **Meet Near Me logo:** [Supplied SVG](https://static.meetnear.me/static/assets/logo.svg), stored locally without altering the mark.
 - **SmartLemon logo:** Supplied LinkedIn company image, stored locally to avoid the expiring asset URL.
-- **Hosts:** Brian Feister and Benji Loschen. Brian’s copy describes his role in this dinner; Benji’s background is based on [SmartLemon’s About page](https://www.smartlemon.io/about). Initials are used instead of invented host portraits.
+- **Flux Footwear logo:** Supplied LinkedIn company image, stored locally as `assets/flux-footwear-logo.jpg` alongside Benji’s Co-Founder credential.
+- **Salesforce logo:** [Supplied Wikimedia SVG](https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg), stored locally as `assets/salesforce-logo.svg` and used alongside Brian’s career credential.
+- **Hosts:** Brian Feister and Benji Loschen. Brian’s supplied background includes his Engineering Lead role at Salesforce Commerce Cloud and founding the [Real Meet Podcast](https://realmeetpodcast.com/), with the bio emphasizing his investment in human connection. Benji’s background is based on [SmartLemon’s About page](https://www.smartlemon.io/about). The supplied portraits are stored as `assets/brian-feister.jpg` and `assets/ben-loschen.jpg`, with circular masks. Benji’s portrait is zoomed and positioned to exclude the surrounding award graphic and red logos.
 - **Photography:** Unsplash [table setting](https://images.unsplash.com/photo-1511795409834-ef04bbd61622) and [shared dinner](https://images.unsplash.com/photo-1414235077428-338989a2e8c0). These are mood images, not venue photography.
 - **Fonts:** [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) and [DM Sans](https://fonts.google.com/specimen/DM+Sans). License notices are included in `assets/`.
 - **Custom art:** Supper club emblem, invitation seal, plate-and-gear illustration, and utility icons are authored for this page.

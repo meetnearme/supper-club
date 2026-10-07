@@ -12,9 +12,10 @@
   force = true
 
 [[redirects]]
-  from = "/tickets/"
-  to = "/tickets"
-  status = 301
+  from = "/thank-you"
+  to = "/thank-you.html"
+  status = 200
+  force = true
 
 [[headers]]
   for = "/tickets"

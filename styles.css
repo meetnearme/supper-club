@@ -72,7 +72,10 @@
 .seat-tag { @apply border-b border-line py-3.5 text-[12px] text-muted; }
 .table-illustration { width: 100%; max-width: 330px; }
 .host-card { @apply flex flex-col border border-line p-7 sm:p-8; }
-.host-monogram { @apply flex h-[62px] w-[62px] flex-none items-center justify-center rounded-full bg-paper font-display text-[30px] text-olive; }
+.host-avatar { @apply block h-[88px] w-[88px] flex-none overflow-hidden rounded-full bg-paper; }
+.host-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.host-avatar--brian img { transform: scale(1.25); transform-origin: 58% 42%; }
+.host-avatar--benji img { transform: scale(3); transform-origin: 86% 75%; }
 .faq-item { border-bottom: 1px solid #dbdccf; }
 .faq-item summary { list-style: none; cursor: pointer; padding: 22px 0; display: flex; align-items: center; justify-content: space-between; gap: 24px; font-size: 14px; font-weight: 500; }
 .faq-item summary::-webkit-details-marker { display: none; }
