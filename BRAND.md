@@ -23,7 +23,7 @@ An independent supper-club identity rooted in the North State. The feeling is a 
 
 **Typography:** Instrument Serif for expressive headlines and italic emphasis; DM Sans for clear, understated practical information. Both are self-hosted, with their SIL Open Font License notices in `assets/`.
 
-**Emblem:** `assets/emblem.svg` is a custom, single-color circular mark combining a mountain horizon and a shared table. It connects the local landscape to the event’s central idea. Use with the Redding / Supper Club wordmark or by itself as a small seal.
+**Emblem:** `assets/emblem.svg` is a custom, single-color circular mark: a mountain horizon with two pines above a shared table, with three fine-lined eight-point stars around it, echoing the conversational spark. It connects the local landscape to the event’s central idea. Use with the Redding / Supper Club wordmark or by itself as a small seal.
 
 **Photography:** Real table textures, shared food, warm light, and human-scale details. Images establish the mood; the included stock photos do not depict Trilogy Guild or actual attendees.
 
@@ -33,7 +33,7 @@ An independent supper-club identity rooted in the North State. The feeling is a 
 
 ## Voice
 
-Inviting, direct, thoughtful. Speak like a good host, not an event promoter. Use “table,” “conversation,” “curiosity,” and “perspective.” Explain how invitations work without suggesting that attendees need prestige, credentials, or permission to belong.
+Inviting, direct, thoughtful. Speak like a good host, not an event promoter. Use “table,” “conversation,” “curiosity,” and “perspective.” Explain how invitations work without suggesting that attendees need prestige, credentials, or permission to belong. Don’t use em dashes; use a comma, a period, or a rewrite instead. Page titles use “|” as the separator.
 
 - “Redding has interesting people you haven’t met yet.”
 - “Different worlds. One shared table.”
@@ -44,9 +44,9 @@ Inviting, direct, thoughtful. Speak like a good host, not an event promoter. Use
 
 **Headline:** Less busywork. More meaningful work.
 
-**Copy:** Where can AI and automation actually give us time back—and what should stay human? Pull up a chair with a small mix of builders, business owners, operators, and curious people from across the North State. Good food. Thoughtful introductions. A conversation worth having.
+**Copy:** Where can AI and automation actually give us time back, and what should stay human? Pull up a chair with a small mix of builders, business owners, operators, and curious people from across the North State. Good food. Thoughtful introductions. A conversation worth having.
 
-**Details:** October 1, 2026 · Trilogy Guild, Redding · 16–20 seats
+**Details:** November 1, 2026 · Trilogy Guild, Redding · 12–20 seats
 
 **CTA:** Request an invitation.
 

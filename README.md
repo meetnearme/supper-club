@@ -96,13 +96,13 @@ Generated `dist/`, dependencies, local environment files, editor state, and ZIP 
 
 ## Event details to finalize
 
-- **Date:** The supplied `10/1/2026` is rendered as Thursday, October 1, 2026. This date is already past as of October 6, 2026; confirm the intended date before publishing. No alternative date has been invented.
+- **Date:** Sunday, November 1, 2026 (corrected from the originally supplied `10/1/2026`).
 - **Time:** Not supplied. The page says the exact start time will arrive with the invitation.
 - **Venue:** Trilogy Guild, Redding. No street address or menu has been invented.
 - **Price:** The page transparently treats $45–$75 as the estimated dinner cost plus the supplied $15 hosting fee, for an estimated $60–$90 total. Confirm whether the original $45–$75 range was meant to include that fee, then update the FAQ and request form.
 - **Confirmation policy:** 48 hours after receiving an invitation is a proposed policy; confirm it with the hosts. It is a guest confirmation window, not a promised host response time.
 - **Discussion topic:** “Less busywork. More meaningful work.” / “Where can AI and automation actually give us time back—and what should stay human?” is proposed copy, based on the supplied automation idea.
-- **Social metadata:** Set `og:image` to an absolute image URL on the final domain, and add the final canonical URL when the domain is known.
+- **Social metadata:** `index.html` keeps root-relative canonical, `og:url`, and `og:image` values; `build.mjs` prefixes them with Netlify's `URL` build variable (the site's primary domain), or `SITE_URL` if set. The preview image is `assets/og-image.jpg` (1200×630, cropped from the hero photo). After a deploy or domain change, run the homepage through Meta's [Sharing Debugger](https://developers.facebook.com/tools/debug/) and click **Scrape Again** to refresh cached previews.
 
 ## Brand and assets
 
@@ -116,5 +116,6 @@ See `BRAND.md` for the identity, palette, typography, voice, and draft advertise
 - **Photography:** Unsplash [table setting](https://images.unsplash.com/photo-1511795409834-ef04bbd61622) and [shared dinner](https://images.unsplash.com/photo-1414235077428-338989a2e8c0). These are mood images, not venue photography.
 - **Fonts:** [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) and [DM Sans](https://fonts.google.com/specimen/DM+Sans). License notices are included in `assets/`.
 - **Custom art:** Supper club emblem, invitation seal, plate-and-gear illustration, and utility icons are authored for this page.
+- **Social profile images:** `assets/profile-forest.png` (Linen on Forest) and `assets/profile-white.png` (Forest on white) are 1080×1080 exports of the emblem for Facebook and Instagram, and `assets/emblem-white.png` is a 2048px white mark on a transparent background. They use heavier strokes than `assets/emblem.svg` so the mark reads at avatar sizes.
 
 The Catskill Crew reference informed the idea of a dinner-club landing page; this site has its own original visual identity and copy.

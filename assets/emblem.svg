@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
   <circle cx="40" cy="40" r="35" stroke="#293e32" stroke-width="1.1"/>
   <circle cx="40" cy="40" r="30" stroke="#293e32" stroke-width=".65"/>
-  <path d="m17 36 12-11 8 6 9-13 17 18M20 39h40M25 45h30M29 45l-3 14m25-14 3 14M34 49h12" stroke="#293e32" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
-  <path d="M40 55v9m-4-4h8M23 19v5m-2.5-2.5h5M58 47v5m-2.5-2.5h5" stroke="#293e32" stroke-width=".9" stroke-linecap="round"/>
-  <path d="M25 35h7m-3.5-7v10M54 28l-4 7h8l-4-7Z" stroke="#293e32" stroke-width="1.1" stroke-linejoin="round"/>
+  <path d="m17 39 12-11 8 6 9-13 17 18M20 42h40M25 48h30M29 48l-3 14m25-14 3 14M34 52h12" stroke="#293e32" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27.5 33l-3.25 6h6.5zM27.5 39v3M52 31.5l-3.75 6.5h7.5zM52 38v4" stroke="#293e32" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M23 18.8v6.4M19.8 22h6.4M20.74 19.74l4.53 4.53M20.74 24.26l4.53-4.53M59 50.1v4.8M56.6 52.5h4.8M57.3 50.8l3.39 3.39M57.3 54.2l3.39-3.39M40 60v6M37 63h6M37.88 60.88l4.24 4.24M37.88 65.12l4.24-4.24" stroke="#293e32" stroke-width=".6" stroke-linecap="round"/>
 </svg>
