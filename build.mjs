@@ -1,6 +1,8 @@
-import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
+import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 
 // Stage only the static site for deployment; index.html also works directly from the project root.
+// Start from an empty dist/: Netlify keeps it between builds, so files deleted from the repo would otherwise still deploy.
+await rm('dist', { recursive: true, force: true });
 await mkdir('dist', { recursive: true });
 await Promise.all(
   ['index.html', 'thank-you.html', 'tickets.html', 'privacy.html', 'script.js', 'tickets.js', 'analytics.js', 'robots.txt', '_redirects', 'assets'].map((path) =>
