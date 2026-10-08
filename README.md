@@ -136,7 +136,7 @@ Generated `dist/`, dependencies, local environment files, editor state, and ZIP 
 
 ## Event details to finalize
 
-- **Date:** Sunday, November 1, 2026 (corrected from the originally supplied `10/1/2026`).
+- **Date:** Tuesday, November 10, 2026 (moved from Sunday, November 1; the originally supplied date was `10/1/2026`).
 - **Time:** Not supplied. The page says the exact start time will arrive with the invitation.
 - **Venue:** Trilogy Guild, Redding. No street address or menu has been invented.
 - **Price:** The page transparently treats $45–$75 as the estimated dinner cost plus the supplied $15 hosting fee, for an estimated $60–$90 total. Confirm whether the original $45–$75 range was meant to include that fee, then update the FAQ and request form.

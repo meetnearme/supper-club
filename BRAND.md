@@ -46,7 +46,7 @@ Inviting, direct, thoughtful. Speak like a good host, not an event promoter. Use
 
 **Copy:** Where can AI and automation actually give us time back, and what should stay human? Pull up a chair with a small mix of builders, business owners, operators, and curious people from across the North State. Good food. Thoughtful introductions. A conversation worth having.
 
-**Details:** November 1, 2026 · Trilogy Guild, Redding · 12–20 seats
+**Details:** November 10, 2026 · Trilogy Guild, Redding · 12–20 seats
 
 **CTA:** Request an invitation.
 
