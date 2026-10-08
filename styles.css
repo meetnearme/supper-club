@@ -181,8 +181,8 @@
     transform-origin: 58% 42%;
 }
 .host-avatar--ben img {
-    transform: scale(3);
-    transform-origin: 86% 75%;
+    transform: scale(1.3);
+    transform-origin: 50% 45%;
 }
 /* The embed injects important theme values after this stylesheet. */
 body #mnm-embed-container[data-theme] {
