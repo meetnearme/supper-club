@@ -6,6 +6,7 @@
   "scripts": {
     "build": "tailwindcss -i ./styles.css -o ./assets/styles.css --minify && node build.mjs",
     "watch": "tailwindcss -i ./styles.css -o ./assets/styles.css --watch",
+    "test": "node --test tests/*.test.mjs",
     "dev": "python3 -m http.server 8000"
   },
   "devDependencies": {
