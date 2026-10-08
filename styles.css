@@ -184,6 +184,19 @@
     transform: scale(3);
     transform-origin: 86% 75%;
 }
+#mnm-embed-container [data-mnm-component='event-detail-register-cta'][data-mnm-context='embed'] {
+    @apply border-forest bg-forest text-white hover:border-olive hover:bg-olive;
+}
+#mnm-embed-container input.input,
+#mnm-embed-container select.select,
+#mnm-embed-container textarea.textarea {
+    padding-inline: 0.75rem;
+    border-width: 1px;
+    border-style: solid;
+}
+#mnm-embed-container select.select {
+    padding-inline-end: 1.75rem;
+}
 .faq-item {
     border-bottom: 1px solid #dbdccf;
 }
