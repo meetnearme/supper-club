@@ -108,7 +108,7 @@ Local/file previews deliberately do not submit or claim to store a request. Othe
 Privately share this URL **only after approving a guest** (replace the domain):
 
 ```text
-https://YOUR-DOMAIN/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c
+https://YOUR-DOMAIN/tickets#event/0ccbc1a9-7709-4dc2-aa59-6ec0bfb96c60
 ```
 
 -   Netlify rewrites `/tickets` to `tickets.html` using the included configuration.
@@ -116,7 +116,7 @@ https://YOUR-DOMAIN/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c
 -   `tickets.js` opens the supplied event by default when no hash is present; an existing event hash is preserved.
 -   The page is absent from public navigation, request responses, and thank-you links. It is marked `noindex, nofollow, noarchive` in both HTML and response headers, and excluded in `robots.txt`.
 -   This is an **unlisted static page**, not an authenticated page. Anyone who already knows the URL can open it. Approval and distributing the link remain manual.
--   Locally, `npm run dev` serves the same clean routes as Netlify, so preview `http://localhost:8000/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c`.
+-   Locally, `npm run dev` serves the same clean routes as Netlify, so preview `http://localhost:8000/tickets#event/0ccbc1a9-7709-4dc2-aa59-6ec0bfb96c60`.
 
 Example approval email:
 
