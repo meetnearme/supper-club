@@ -17,6 +17,35 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/privacy"
+  to = "/privacy.html"
+  status = 200
+  force = true
+
+# PostHog reverse proxy used by analytics.js. Asset rules must come before the catch-all.
+# Only works on a custom domain (Netlify alters Content-Encoding on *.netlify.app); analytics.js runs only on reddingsupper.club.
+[[redirects]]
+  from = "/relay/static/*"
+  to = "https://us-assets.i.posthog.com/static/:splat"
+  host = "us-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/relay/array/*"
+  to = "https://us-assets.i.posthog.com/array/:splat"
+  host = "us-assets.i.posthog.com"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/relay/*"
+  to = "https://us.i.posthog.com/:splat"
+  host = "us.i.posthog.com"
+  status = 200
+  force = true
+
 [[headers]]
   for = "/tickets"
   [headers.values]

@@ -36,6 +36,7 @@
       }
       dialog.showModal();
       document.body.classList.add('dialog-open');
+      window.posthog?.capture('invitation_form_opened');
     });
   });
 

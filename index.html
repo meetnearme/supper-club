@@ -26,6 +26,7 @@
   <link rel="preload" href="assets/instrument-serif.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/dm-sans.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/styles.css" />
+  <script src="analytics.js" defer></script>
   <script src="script.js" defer></script>
 </head>
 
@@ -449,9 +450,9 @@
           </div>
           <h3 class="mt-7 font-display text-[36px] leading-tight text-forest">Ben Loschen</h3>
           <p class="mt-1 text-[10px] font-medium uppercase tracking-[0.13em] text-olive">Your host from SmartLemon</p>
-          <p class="mt-5 text-[13px] leading-[1.9] text-muted">Ben’s work has helped take consumer brands from an
-            idea to millions in revenue, including Flux Footwear, the barefoot shoe company he co-founded and has
-            since exited.</p>
+          <p class="mt-5 text-[13px] leading-[1.9] text-muted">Ben has taken multiple consumer brands from 0 to
+            millions, including Flux Footwear, the barefoot shoe company he co-founded and has since exited. Today
+            he leads digital transformation work for multibillion-dollar supply chain and logistics companies.</p>
           <p class="mb-7 mt-3 text-[13px] leading-[1.9] text-muted">He’s also chosen to build technology that
             creates delight, connection, autonomy, and growth instead of competing for our attention. Through
             SmartLemon, he helps business owners hand off busywork, win back their time, and focus on the parts of
@@ -545,7 +546,8 @@
     <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-[10px] text-muted"><span>Made for the
         North State.</span><a href="https://meetnear.me/" target="_blank" rel="noopener noreferrer"
         class="hover:text-rust">Meet Near Me</a><span>×</span><a href="https://www.linkedin.com/company/smartlemon/"
-        target="_blank" rel="noopener noreferrer" class="hover:text-rust">SmartLemon</a><span>© 2026</span></div>
+        target="_blank" rel="noopener noreferrer" class="hover:text-rust">SmartLemon</a><a href="/privacy"
+        class="hover:text-rust">Privacy</a><span>© 2026</span></div>
   </footer>
 
   <dialog id="invitation-dialog" class="invitation-dialog" aria-labelledby="dialog-heading"
@@ -585,7 +587,8 @@
             name="dietary" maxlength="500" placeholder="Anything we should know?" /></div>
         <p class="mt-5 text-[11px] leading-[1.8] text-muted">Requesting is free. Estimated dinner-inclusive price:
           $60–$90, including a $15 hosting fee. Your hosts personally review every request and email approved guests a
-          private ticket link. Your details are for organizing this dinner.</p>
+          private ticket link. Your details are for organizing this dinner. We measure our ads with Meta and PostHog;
+          our <a href="/privacy" class="underline">privacy page</a> explains how.</p>
         <p id="form-status" class="form-status mt-4 border-l-2 border-rust bg-paper p-3 text-[12px] leading-[1.7]"
           role="status" aria-live="polite"></p>
         <button type="submit" class="button-primary mt-6 w-full" id="submit-request">Send my request <svg

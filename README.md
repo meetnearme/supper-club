@@ -32,6 +32,7 @@ Netlify serves clean URLs directly; no static-site framework is required:
 | `/` | `index.html` |
 | `/tickets` | `tickets.html` |
 | `/thank-you` | `thank-you.html` |
+| `/privacy` | `privacy.html` |
 
 The secondary routes use explicit `200` rewrites in `netlify.toml`, so the browser keeps the clean URL. Netlify matches these rules with or without a trailing slash. Root-relative asset and home links keep both URL forms working. The event fragment (`#event/…`) is handled by the Meet Near Me embed in the browser.
 
@@ -63,6 +64,25 @@ The hidden subject field sets **“New Redding Supper Club invitation request.�
 
 Local/file previews deliberately do not submit or claim to store a request. Other hosting platforms need a working form endpoint. See [Netlify’s notification documentation](https://docs.netlify.com/manage/forms/notifications/) for the dashboard settings.
 
+## Analytics
+
+`analytics.js` loads PostHog on the homepage, `/thank-you`, and `/privacy`, but not on the unlisted ticketing page. The project lives in the **Redding Supper Club** PostHog organization (US cloud). The token in the file is a client-side token and is public by design.
+
+- **Events:** pageviews are automatic. `invitation_form_opened` fires when the request dialog opens (`script.js`), and `invitation_requested` fires when `/thank-you` loads, which only the form leads to.
+- **Replay and heatmaps:** switched on in the PostHog project settings, not in code. PostHog masks form inputs in recordings by default.
+- **Ad attribution:** UTM tags on the landing URL are kept for the rest of the visit, so `invitation_requested` carries the ad's `utm_campaign` and `utm_content`. Give Meta ads these URL parameters:
+
+  ```text
+  utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}
+  ```
+
+- **Proxy:** events go through `/relay/*` on the site's own domain (rules in `netlify.toml`), so ad blockers drop fewer of them.
+- **Live domain only:** analytics run only on `reddingsupper.club`, so local previews and Netlify deploy previews send nothing. Update the domain list in `analytics.js` if the site moves.
+- **Gaps:** browser analytics miss some visitors. Netlify Forms remains the exact count of requests.
+- **Ad spend:** to see Meta spend next to requests, turn on the Marketing Analytics beta in PostHog's feature previews, connect the Meta ad account, and set `invitation_requested` as the conversion goal.
+- **Meta Pixel:** also loaded by `analytics.js` on the live domain only (pixel `1641371730822384`). It sends `PageView` on every page and `Lead` on `/thank-you`. Optimize Meta campaigns for landing page views; a few dozen Leads is too few to optimize for.
+- **Privacy:** `privacy.html` describes this setup and is linked from the footer and the request form. Update it if tracking changes. It assumes the pixel's automatic advanced matching may send hashed name and email to Meta; if that setting is off in Events Manager, that paragraph can be softened.
+
 ## Unlisted ticketing page
 
 Privately share this URL **only after approving a guest** (replace the domain):
@@ -76,7 +96,7 @@ https://YOUR-DOMAIN/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c
 - `tickets.js` opens the supplied event by default when no hash is present; an existing event hash is preserved.
 - The page is absent from public navigation, request responses, and thank-you links. It is marked `noindex, nofollow, noarchive` in both HTML and response headers, and excluded in `robots.txt`.
 - This is an **unlisted static page**, not an authenticated page. Anyone who already knows the URL can open it. Approval and distributing the link remain manual.
-- With the basic local Python server, preview `http://localhost:8000/tickets.html#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c`; the extensionless `/tickets` route is provided by Netlify.
+- Locally, `npm run dev` serves the same clean routes as Netlify, so preview `http://localhost:8000/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c`.
 
 Example approval email:
 

@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tailwindcss -i ./styles.css -o ./assets/styles.css --minify && node build.mjs",
     "watch": "tailwindcss -i ./styles.css -o ./assets/styles.css --watch",
-    "dev": "python3 -m http.server 8000"
+    "dev": "node dev.mjs"
   },
   "devDependencies": {
     "tailwindcss": "3.4.17"
