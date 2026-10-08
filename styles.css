@@ -184,8 +184,35 @@
     transform: scale(3);
     transform-origin: 86% 75%;
 }
-#mnm-embed-container [data-mnm-component='event-detail-register-cta'][data-mnm-context='embed'] {
+/* The embed injects important theme values after this stylesheet. */
+body #mnm-embed-container[data-theme] {
+    --color-base-100: #f7f5ee !important;
+    --color-base-200: #eeece2 !important;
+    --color-base-300: #dbdccf !important;
+    --color-base-content: #30392f !important;
+    --radius-field: 0px !important;
+    --radius-selector: 0px !important;
+    --radius-box: 0px !important;
+}
+#mnm-embed-container .btn-primary {
     @apply border-forest bg-forest text-white hover:border-olive hover:bg-olive;
+}
+#mnm-embed-container .drawer-side > .bg-base-100,
+#mnm-embed-container [data-mnm-component='event-detail-bottom-drawer'] {
+    @apply bg-linen;
+}
+#mnm-embed-container :is(
+    .btn,
+    .input,
+    .select,
+    .textarea,
+    .badge,
+    .tab,
+    .tab-content,
+    [class*='rounded-']:not(.rounded-full),
+    [data-mnm-component='event-detail-image-wrapper']
+) {
+    border-radius: 0;
 }
 #mnm-embed-container input.input,
 #mnm-embed-container select.select,
