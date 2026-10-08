@@ -27,12 +27,12 @@ The build refreshes `assets/styles.css` and stages the complete static site in `
 
 Netlify serves clean URLs directly; no static-site framework is required:
 
-| URL | Served HTML |
-| --- | --- |
-| `/` | `index.html` |
-| `/tickets` | `tickets.html` |
+| URL          | Served HTML      |
+| ------------ | ---------------- |
+| `/`          | `index.html`     |
+| `/tickets`   | `tickets.html`   |
 | `/thank-you` | `thank-you.html` |
-| `/privacy` | `privacy.html` |
+| `/privacy`   | `privacy.html`   |
 
 The secondary routes use explicit `200` rewrites in `netlify.toml`, so the browser keeps the clean URL. Netlify matches these rules with or without a trailing slash. Root-relative asset and home links keep both URL forms working. The event fragment (`#event/…`) is handled by the Meet Near Me embed in the browser.
 
@@ -43,26 +43,46 @@ All invitation buttons open a keyboard-accessible native dialog. **Email is the 
 The workflow is deliberately human-led:
 
 1. A visitor requests an invitation using the public landing page.
-2. **Netlify Forms** stores the request and emails it to **brian@meetnear.me** once the notification below is configured.
-3. The visitor sees `/thank-you`, which confirms **pending personal review**. This page never links or redirects to ticketing.
-4. Brian reviews the request and makes the approval decision manually.
-5. Brian privately emails approved guests their invitation and the Meet Near Me ticket link.
+2. **Netlify Forms** stores the verified request and triggers `netlify/functions/submission-created.mjs`.
+3. **Resend** sends the request details to **brian@meetnear.me** and a separate pending-review acknowledgment to the applicant. Brian’s notification uses the applicant’s email as Reply-To; the applicant can reply to Brian.
+4. The visitor sees `/thank-you`, which confirms **pending personal review**. This page never links or redirects to ticketing.
+5. Brian reviews the request and makes the approval decision manually.
+6. Brian privately emails approved guests their invitation and the Meet Near Me ticket link.
 
-Guest emails, approvals, and invitation delivery are manual. The page does not send automated guest acknowledgment emails or grant access following a submission.
+Request acknowledgments and organizer notifications are automatic once Resend is configured. **Approval and actual invitation delivery remain manual.** The acknowledgment is not an invitation or a reservation and includes no ticket URL.
 
-### Required Netlify notification setting
+### Required Resend and Netlify settings
 
-Email recipients are account settings in Netlify; they cannot be configured by a hidden HTML input or `netlify.toml`. After connecting the GitHub repository and deploying:
+The function uses Resend’s batch API to send two separate emails in one request. It uses the verified submission ID as an idempotency key, so retrying the same event does not duplicate the batch within Resend’s 24-hour window. No Resend SDK dependency is needed.
 
-1. Enable **form detection** in your Netlify site's Forms settings and deploy the site with the included `netlify.toml` (`npm run build`, publish directory `dist`).
-2. Verify that **invitation-request** appears in the Forms dashboard.
-3. Go to **Forms → Submission notifications → Add notification → Email notification**.
-4. Select **invitation-request** and set the recipient to **brian@meetnear.me**.
-5. Submit a request with an email address you control to verify receipt in your inbox and the pending-review confirmation page.
+1. In **Resend → Domains**, verify the domain you want to send from, then create an API key with sending access.
+2. In **Netlify → Project configuration → Environment variables**, set these variables with the **Functions** scope:
 
-The hidden subject field sets **“New Redding Supper Club invitation request.”** The input is named `email`, so Netlify sets the notification’s **Reply-To** to the submitter. You can reply directly with your approval and private ticket link.
+   | Variable | Value |
+   | --- | --- |
+   | `RESEND_API_KEY` | Your Resend API key |
+   | `RESEND_FROM_EMAIL` | A verified sender, e.g. `Redding Supper Club <brian@meetnear.me>` |
 
-Local/file previews deliberately do not submit or claim to store a request. Other hosting platforms need a working form endpoint. See [Netlify’s notification documentation](https://docs.netlify.com/manage/forms/notifications/) for the dashboard settings.
+   The example sender requires `meetnear.me` to be verified in your Resend account. `.env.example` documents the names without containing a key.
+
+3. Deploy the updated repository. The build command is still **`npm run build`**, publish directory **`dist`**. The functions directory is now **`netlify/functions`**, configured in `netlify.toml`; Netlify bundles it separately from the static site.
+4. Enable **form detection** and verify that **invitation-request** appears in the Forms dashboard.
+5. If you enabled Netlify’s built-in email notification for this form previously, remove it from **Forms → Submission notifications** to avoid duplicate organizer emails now that Resend sends that message.
+6. Submit a request with an email address you control. Confirm that the applicant receives an acknowledgment and Brian receives the full request with the correct Reply-To.
+
+Netlify’s supported `submission-created` event-function convention invokes the handler for verified submissions and verifies event signatures before invocation. The browser submits to Netlify Forms, not to a public email-sending endpoint.
+
+If delivery fails, the request remains available in Netlify Forms. Check **Functions → submission-created → Logs** and the Resend Emails dashboard. The function reports missing configuration and failed API calls; API acceptance does not guarantee inbox delivery. After correcting a failure, arrange delivery for the saved request; there is no custom queue or automatic backfill of older requests.
+
+### Email checks
+
+```sh
+npm test
+```
+
+The tests mock Resend: they check both recipients, Reply-To, request details, HTML escaping, pending-review language, no ticket-link disclosure, idempotency, and failure handling. They send no real emails.
+
+Local/file previews deliberately do not submit or claim to store a request. Other hosting platforms need a working form endpoint and a way to invoke the email handler after saving submissions. See [Netlify’s form-event documentation](https://docs.netlify.com/build/functions/trigger-on-events/) and [Resend’s batch API documentation](https://resend.com/docs/api-reference/emails/send-batch-emails).
 
 ## Analytics
 
@@ -91,12 +111,12 @@ Privately share this URL **only after approving a guest** (replace the domain):
 https://YOUR-DOMAIN/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c
 ```
 
-- Netlify rewrites `/tickets` to `tickets.html` using the included configuration.
-- The supplied Meet Near Me embed uses publisher/owner ID `394007099018847381`, the Redding location, and the provided radius.
-- `tickets.js` opens the supplied event by default when no hash is present; an existing event hash is preserved.
-- The page is absent from public navigation, request responses, and thank-you links. It is marked `noindex, nofollow, noarchive` in both HTML and response headers, and excluded in `robots.txt`.
-- This is an **unlisted static page**, not an authenticated page. Anyone who already knows the URL can open it. Approval and distributing the link remain manual.
-- Locally, `npm run dev` serves the same clean routes as Netlify, so preview `http://localhost:8000/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c`.
+-   Netlify rewrites `/tickets` to `tickets.html` using the included configuration.
+-   The supplied Meet Near Me embed uses publisher/owner ID `394007099018847381`, the Redding location, and the provided radius.
+-   `tickets.js` opens the supplied event by default when no hash is present; an existing event hash is preserved.
+-   The page is absent from public navigation, request responses, and thank-you links. It is marked `noindex, nofollow, noarchive` in both HTML and response headers, and excluded in `robots.txt`.
+-   This is an **unlisted static page**, not an authenticated page. Anyone who already knows the URL can open it. Approval and distributing the link remain manual.
+-   Locally, `npm run dev` serves the same clean routes as Netlify, so preview `http://localhost:8000/tickets#event/c5fc0d53-08e2-4171-aa6d-2ee393ebb66c`.
 
 Example approval email:
 
@@ -130,9 +150,9 @@ See `BRAND.md` for the identity, palette, typography, voice, and draft advertise
 
 - **Meet Near Me logo:** [Supplied SVG](https://static.meetnear.me/static/assets/logo.svg), stored locally without altering the mark.
 - **SmartLemon logo:** Supplied LinkedIn company image, stored locally to avoid the expiring asset URL.
-- **Flux Footwear logo:** Supplied LinkedIn company image, stored locally as `assets/flux-footwear-logo.jpg` alongside Benji’s Co-Founder credential.
+- **Flux Footwear logo:** Supplied LinkedIn company image, stored locally as `assets/flux-footwear-logo.jpg` alongside Ben’s Former Co-Founder credential.
 - **Salesforce logo:** [Supplied Wikimedia SVG](https://upload.wikimedia.org/wikipedia/commons/f/f9/Salesforce.com_logo.svg), stored locally as `assets/salesforce-logo.svg` and used alongside Brian’s career credential.
-- **Hosts:** Brian Feister and Benji Loschen. Brian’s supplied background includes his Engineering Lead role at Salesforce Commerce Cloud and founding the [Real Meet Podcast](https://realmeetpodcast.com/), with the bio emphasizing his investment in human connection. Benji’s background is based on [SmartLemon’s About page](https://www.smartlemon.io/about). The supplied portraits are stored as `assets/brian-feister.jpg` and `assets/ben-loschen.jpg`, with circular masks. Benji’s portrait is zoomed and positioned to exclude the surrounding award graphic and red logos.
+- **Hosts:** Brian Feister and Ben Loschen. Brian’s supplied background includes his Engineering Lead role at Salesforce Commerce Cloud and founding the [Real Meet Podcast](https://realmeetpodcast.com/), with the bio emphasizing his investment in human connection. Ben’s background is based on [SmartLemon’s About page](https://www.smartlemon.io/about). The supplied portraits are stored as `assets/brian-feister.jpg` and `assets/ben-loschen.jpg`, with circular masks. Ben’s portrait is zoomed and positioned to exclude the surrounding award graphic and red logos.
 - **Photography:** Unsplash [table setting](https://images.unsplash.com/photo-1511795409834-ef04bbd61622) and [shared dinner](https://images.unsplash.com/photo-1414235077428-338989a2e8c0). These are mood images, not venue photography.
 - **Fonts:** [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif) and [DM Sans](https://fonts.google.com/specimen/DM+Sans). License notices are included in `assets/`.
 - **Custom art:** Supper club emblem, invitation seal, plate-and-gear illustration, and utility icons are authored for this page.
