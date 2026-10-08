@@ -96,7 +96,7 @@ Local/file previews deliberately do not submit or claim to store a request. Othe
   utm_source=meta&utm_medium=paid_social&utm_campaign={{campaign.name}}&utm_content={{ad.name}}
   ```
 
-- **Proxy:** events go through `/relay/*` on the site's own domain (rules in `netlify.toml`), so ad blockers drop fewer of them.
+- **Proxy:** events go through `/relay/*` on the site's own domain, so ad blockers drop fewer of them. The rules are in `_redirects`, which `build.mjs` copies into `dist/`; the same rules in `netlify.toml` were not applied by the live deploy.
 - **Live domain only:** analytics run only on `reddingsupper.club`, so local previews and Netlify deploy previews send nothing. Update the domain list in `analytics.js` if the site moves.
 - **Gaps:** browser analytics miss some visitors. Netlify Forms remains the exact count of requests.
 - **Ad spend:** to see Meta spend next to requests, turn on the Marketing Analytics beta in PostHog's feature previews, connect the Meta ad account, and set `invitation_requested` as the conversion goal.

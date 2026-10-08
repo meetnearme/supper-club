@@ -1,0 +1,5 @@
+# PostHog reverse proxy used by analytics.js. Asset rules must come before the catch-all.
+# Lives here rather than in netlify.toml so the rules ship inside every deploy (build.mjs copies this file to dist/).
+/relay/static/*  https://us-assets.i.posthog.com/static/:splat  200!
+/relay/array/*   https://us-assets.i.posthog.com/array/:splat   200!
+/relay/*         https://us.i.posthog.com/:splat                200!

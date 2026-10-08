@@ -3,7 +3,7 @@ import { cp, mkdir, readFile, writeFile } from 'node:fs/promises';
 // Stage only the static site for deployment; index.html also works directly from the project root.
 await mkdir('dist', { recursive: true });
 await Promise.all(
-  ['index.html', 'thank-you.html', 'tickets.html', 'privacy.html', 'script.js', 'tickets.js', 'analytics.js', 'robots.txt', 'assets'].map((path) =>
+  ['index.html', 'thank-you.html', 'tickets.html', 'privacy.html', 'script.js', 'tickets.js', 'analytics.js', 'robots.txt', '_redirects', 'assets'].map((path) =>
     cp(path, `dist/${path}`, { recursive: true }),
   ),
 );

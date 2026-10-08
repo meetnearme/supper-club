@@ -1,5 +1,5 @@
 // PostHog analytics (Redding Supper Club organization, US cloud) and the Meta Pixel. Runs only on the live domain, so
-// local and Netlify deploy previews send nothing. PostHog events go through the /relay proxy in netlify.toml so ad
+// local and Netlify deploy previews send nothing. PostHog events go through the /relay proxy in _redirects so ad
 // blockers drop fewer of them. privacy.html describes all of this; update it when tracking changes.
 (() => {
   if (!['reddingsupper.club', 'www.reddingsupper.club'].includes(location.hostname)) return;
