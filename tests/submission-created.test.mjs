@@ -54,7 +54,7 @@ function captureDelivery(respond = () => Response.json({ data: [{ id: 'organizer
   return calls;
 }
 
-test('notifies Brian with all request details and acknowledges only the applicant', async () => {
+test('notifies Brian, copying Ben, with all request details and acknowledges only the applicant', async () => {
   const calls = captureDelivery();
   const response = await submissionCreated(requestFor());
   assert.equal(response.status, 200);
@@ -65,11 +65,14 @@ test('notifies Brian with all request details and acknowledges only the applican
 
   const [organizer, applicant] = calls[0].messages;
   assert.deepEqual(organizer.to, ['brian@meetnear.me']);
+  assert.deepEqual(organizer.cc, ['benji@smartlemon.io']);
   assert.equal(organizer.reply_to, 'taylor@example.com');
   assert.match(organizer.text, /Building a neighborhood workshop/);
   assert.match(organizer.text, /What should stay human\?/);
   assert.match(organizer.text, /Peanut allergy/);
   assert.deepEqual(applicant.to, ['taylor@example.com']);
+  assert.equal(applicant.cc, undefined);
+  assert.equal(applicant.bcc, undefined);
   assert.equal(applicant.reply_to, 'brian@meetnear.me');
   assert.match(applicant.text, /pending review/);
   assert.match(applicant.text, /not an invitation, a ticket, or a reserved seat/);

@@ -2,6 +2,7 @@ import { createHash } from 'node:crypto';
 
 const formName = 'invitation-request';
 const organizerEmail = 'brian@meetnear.me';
+const cohostEmail = 'benji@smartlemon.io';
 
 function field(value) {
     return typeof value === 'string' ? value.trim() : '';
@@ -55,6 +56,7 @@ function invitationEmails(data, from) {
         {
             from,
             to: [organizerEmail],
+            cc: [cohostEmail],
             reply_to: email,
             subject: 'New Redding Supper Club invitation request',
             text: [

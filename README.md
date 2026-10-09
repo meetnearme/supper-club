@@ -44,7 +44,7 @@ The workflow is deliberately human-led:
 
 1. A visitor requests an invitation using the public landing page.
 2. **Netlify Forms** stores the verified request and triggers `netlify/functions/submission-created.mjs`.
-3. **Resend** sends the request details to **brian@meetnear.me** and a separate pending-review acknowledgment to the applicant. Brian’s notification uses the applicant’s email as Reply-To; the applicant can reply to Brian.
+3. **Resend** sends the request details to **brian@meetnear.me**, copying **benji@smartlemon.io**, and a separate pending-review acknowledgment to the applicant. Brian’s notification uses the applicant’s email as Reply-To; the applicant can reply to Brian.
 4. The visitor sees `/thank-you`, which confirms **pending personal review**. This page never links or redirects to ticketing.
 5. Brian reviews the request and makes the approval decision manually.
 6. Brian privately emails approved guests their invitation and the Meet Near Me ticket link.
