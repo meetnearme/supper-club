@@ -38,7 +38,7 @@ The secondary routes use explicit `200` rewrites in `netlify.toml`, so the brows
 
 ## Invitation requests
 
-All invitation buttons open a keyboard-accessible native dialog. **Email is the only required field**; name, work, curiosity, and dietary requirements are optional. The form has native browser validation and a honeypot field.
+All invitation buttons open a keyboard-accessible native dialog. **Email, name, work, and curiosity are required**; dietary requirements are optional. The form has native browser validation, which also rejects answers made only of spaces, and a honeypot field.
 
 The workflow is deliberately human-led:
 

@@ -78,6 +78,19 @@
         else menuToggle.focus();
     });
 
+    // Native `required` accepts an answer of only spaces. Flag those before the browser validates; pressing
+    // Enter in a field also clicks the submit button, so both ways of sending are covered.
+    function flagBlankAnswers() {
+        form.querySelectorAll('[required]').forEach((field) => {
+            const blank = field.value !== '' && field.value.trim() === '';
+            field.setCustomValidity(blank ? 'Please fill out this field.' : '');
+        });
+    }
+    form.addEventListener('input', flagBlankAnswers);
+    document
+        .querySelector('#submit-request')
+        .addEventListener('click', flagBlankAnswers);
+
     // Netlify handles the native POST on the live site. Never simulate a successful request locally.
     form.addEventListener('submit', (event) => {
         if (!isLocalPreview) return;
