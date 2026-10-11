@@ -144,8 +144,8 @@ export default async function submissionCreated(request) {
     }
 
     const apiKey = field(process.env.RESEND_API_KEY);
-    const from = field(process.env.RESEND_FROM_EMAIL);
-    if (!apiKey || !from) {
+    const configuredFrom = field(process.env.RESEND_FROM_EMAIL);
+    if (!apiKey || !configuredFrom) {
         console.error(
             'Invitation emails are not configured: set RESEND_API_KEY and RESEND_FROM_EMAIL in Netlify.'
         );
@@ -154,6 +154,9 @@ export default async function submissionCreated(request) {
             { status: 503 }
         );
     }
+
+    const senderAddress = field(configuredFrom.match(/<([^<>]+)>$/)?.[1] || configuredFrom);
+    const from = `Redding Supper Club <${senderAddress}>`;
 
     // The same verified submission keeps the same key, preventing duplicate batches on retries for 24 hours.
     const submissionKey = createHash('sha256').update(payload.id).digest('hex');

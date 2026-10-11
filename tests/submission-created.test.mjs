@@ -10,7 +10,7 @@ let fetchMock;
 
 beforeEach(() => {
   process.env.RESEND_API_KEY = 'resend-test-key';
-  process.env.RESEND_FROM_EMAIL = 'Redding Supper Club <brian@meetnear.me>';
+  process.env.RESEND_FROM_EMAIL = 'hey@reddingsupper.club';
   fetchMock = mock.method(globalThis, 'fetch', async () => {
     throw new Error('Unexpected network request in email test');
   });
@@ -64,6 +64,8 @@ test('notifies Brian, copying Ben, with all request details and acknowledges onl
   assert.equal(calls[0].headers.Authorization, 'Bearer resend-test-key');
 
   const [organizer, applicant] = calls[0].messages;
+  assert.equal(organizer.from, 'Redding Supper Club <hey@reddingsupper.club>');
+  assert.equal(applicant.from, 'Redding Supper Club <hey@reddingsupper.club>');
   assert.deepEqual(organizer.to, ['brian@meetnear.me']);
   assert.deepEqual(organizer.cc, ['benji@smartlemon.io']);
   assert.equal(organizer.reply_to, 'taylor@example.com');
@@ -77,6 +79,15 @@ test('notifies Brian, copying Ben, with all request details and acknowledges onl
   assert.match(applicant.text, /pending review/);
   assert.match(applicant.text, /not an invitation, a ticket, or a reserved seat/);
   assert.doesNotMatch(applicant.text + applicant.html, /\/tickets|#event\/|Peanut allergy/);
+});
+
+test('uses the club display name when the sender setting already contains a display name', async () => {
+  process.env.RESEND_FROM_EMAIL = 'hey <hey@reddingsupper.club>';
+  const calls = captureDelivery();
+  assert.equal((await submissionCreated(requestFor())).status, 200);
+  for (const message of calls[0].messages) {
+    assert.equal(message.from, 'Redding Supper Club <hey@reddingsupper.club>');
+  }
 });
 
 test('accepts email-only requests and supported form-name payload variants', async () => {

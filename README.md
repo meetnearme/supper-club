@@ -61,9 +61,9 @@ The function uses Resend’s batch API to send two separate emails in one reques
    | Variable | Value |
    | --- | --- |
    | `RESEND_API_KEY` | Your Resend API key |
-   | `RESEND_FROM_EMAIL` | A verified sender, e.g. `Redding Supper Club <brian@meetnear.me>` |
+   | `RESEND_FROM_EMAIL` | A verified sender address, e.g. `hey@reddingsupper.club` |
 
-   The example sender requires `meetnear.me` to be verified in your Resend account. `.env.example` documents the names without containing a key.
+   The example sender requires `reddingsupper.club` to be verified in your Resend account. The function adds the display name automatically, sending as `Redding Supper Club <hey@reddingsupper.club>`. Existing `Name <address>` settings are also supported; the display name is normalized to `Redding Supper Club`. `.env.example` documents the names without containing a key.
 
 3. Deploy the updated repository. The build command is still **`npm run build`**, publish directory **`dist`**. The functions directory is now **`netlify/functions`**, configured in `netlify.toml`; Netlify bundles it separately from the static site.
 4. Enable **form detection** and verify that **invitation-request** appears in the Forms dashboard.
