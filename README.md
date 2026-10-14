@@ -89,6 +89,7 @@ Local/file previews deliberately do not submit or claim to store a request. Othe
 `analytics.js` loads PostHog on the homepage, `/thank-you`, and `/privacy`, but not on the unlisted ticketing page. The project lives in the **Redding Supper Club** PostHog organization (US cloud). The token in the file is a client-side token and is public by design.
 
 - **Events:** pageviews are automatic. `invitation_form_opened` fires when the request dialog opens (`script.js`), and `invitation_requested` fires when `/thank-you` loads, which only the form leads to.
+- **Social link clicks:** autocapture records them. Each Instagram and Facebook link has a `data-attr` label naming the network and placement (`social-instagram-footer`, `social-facebook-cta`, `social-instagram-thank-you`, and so on). The **Social link clicks by placement** insight in PostHog breaks clicks down by that label, so keep the pattern when adding a link.
 - **Replay and heatmaps:** switched on in the PostHog project settings, not in code. PostHog masks form inputs in recordings by default.
 - **Ad attribution:** UTM tags on the landing URL are kept for the rest of the visit, so `invitation_requested` carries the ad's `utm_campaign` and `utm_content`. Give Meta ads these URL parameters:
 
