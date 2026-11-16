@@ -33,8 +33,27 @@ Netlify serves clean URLs directly; no static-site framework is required:
 | `/tickets`   | `tickets.html`   |
 | `/thank-you` | `thank-you.html` |
 | `/privacy`   | `privacy.html`   |
+| `/reports/2026_11_10_spending_report.html` | `reports/2026_11_10_spending_report.html` |
 
 The secondary routes use explicit `200` rewrites in `netlify.toml`, so the browser keeps the clean URL. Netlify matches these rules with or without a trailing slash. Root-relative asset and home links keep both URL forms working. The event fragment (`#event/…`) is handled by the Meet Near Me embed in the browser.
+
+## Attendee spending reports
+
+The November 10 dinner report is at `reports/2026_11_10_spending_report.html`. Preview it at **http://localhost:8000/reports/2026_11_10_spending_report.html**. The build includes `reports/` in the static site and prepares its social sharing URLs using `SITE_URL` or Netlify's `URL`.
+
+The final report reconciles ticket payments, refunds, catering, chair rental, Meta advertising, and glassware. It shows $1,394.33 in captured payments, $150.00 refunded, $45.10 in processing fees, and $1,199.23 in net receipts before event expenses. Event expenses total $1,221.92: $1,065.64 in catering, $31.66 in chair rental, $78.31 in Meta ads, and $46.31 for a one-off Kohl’s purchase of 24 wine glasses. The final event loss is $22.69. The allocation graphic totals $1,417.02 including refunds and processing fees, exceeding gross ticket payments by $22.69. The report was finalized November 16, 2026. The two refunded tickets reduce 18 purchased tickets to 16.
+
+Accounting CSVs live under `records/2026-11-10/`: the expense ledger is in `expenses/2026_11_10_expenses.csv`; ticket sales, payments, and `2026_11_10_ticket_reconciliation.csv` are in `revenue/`. The revenue records are scrubbed: customer names/emails, original buyer/payment/card/payout identifiers, meal choices, detailed decline information, and exact timestamps are removed. Event-local order/payment references preserve the joins and financial totals; dates retain day precision with Pacific/UTC labels. These are pseudonymized transaction records, so the aggregate HTML report remains the public sharing format.
+
+Original exports and PDFs contain personal and payment information and are not part of the public repository. The scrubbed CSVs retain the matches of 17 orders to 17 captured payments, excluding the two failed attempts from sales. The accounts and website build do not depend on original files; retain them separately if needed for bookkeeping.
+
+The expense ledger includes catering ($864.00 dinner menus, $62.64 tax, $139.00 operation fee), chair rental ($27.00 rental, $2.70 wear and tear, $1.96 tax), and $78.31 in Meta ads. Use the documented dollar amounts. The catering card surcharge field is blank, so none is added. The chair receipt shows payment in full. Meta's ten daily amounts total $78.31 and report 27 website leads and 3,471 impressions, not ticket purchases. Reimbursements and individual Meta card receipts are not additional expenses. The ledger's payment evidence is retained independently of the report's final status.
+
+The glassware expense uses the organizer-provided total of $46.31 for 24 wine glasses from Kohl’s. The full one-off purchase is allocated to this event. No receipt, purchase date, unit cost, or tax breakdown was supplied; the ledger's event date identifies the dinner, rather than the purchase date.
+
+[The event record index](records/2026-11-10/README.md) documents the final accounts, scrubbed CSVs, and historical source document names. The expense ledger's `source_document` column contains filename citations only, not links or required file paths. Source PDFs are not included in the public archive. Use a separate dated directory for each future event.
+
+Only the attendee-facing HTML is published. It contains no CSV or PDF links. The entire `records/` archive is excluded from `dist/` and blocked by the local preview server. Corrections to the final accounts should update the ledger, report, archive index, allocation graphic, final result, sharing descriptions, and finalized date together.
 
 ## Invitation requests
 

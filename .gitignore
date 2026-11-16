@@ -7,3 +7,6 @@ dist/
 .env.*
 !.env.example
 *.zip
+
+# Original event exports and receipts contain personal and payment information.
+/records/*/private/

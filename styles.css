@@ -297,6 +297,114 @@ body #mnm-embed-container[data-theme] {
     transform: translateY(18px);
 }
 
+.report-money,
+.report-ledger td {
+    font-variant-numeric: tabular-nums lining-nums;
+    white-space: nowrap;
+}
+.report-ledger {
+    border-collapse: collapse;
+    font-size: 13px;
+    line-height: 1.6;
+}
+.report-ledger th,
+.report-ledger td {
+    padding: 18px 16px;
+    border-bottom: 1px solid #dbdccf;
+    vertical-align: top;
+}
+.report-ledger th {
+    text-align: left;
+    font-weight: 500;
+}
+.report-ledger thead th {
+    background: #eeece2;
+    color: #62675b;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+.report-ledger td,
+.report-ledger thead th:not(:first-child) {
+    text-align: right;
+}
+.report-row-note {
+    display: block;
+    margin-top: 4px;
+    color: #62675b;
+    font-size: 11px;
+    font-weight: 400;
+}
+.report-subtotal {
+    background: #eeece266;
+}
+.report-total {
+    background: #293e32;
+    color: #f7f5ee;
+    font-size: 15px;
+}
+.report-total .report-row-note {
+    color: #f7f5eecc;
+}
+.report-ledger .report-total th,
+.report-ledger .report-total td {
+    border-bottom-color: #293e32;
+}
+.report-ledger tfoot {
+    background: #eeece266;
+    font-weight: 500;
+}
+.report-allocation {
+    display: flex;
+    gap: 3px;
+    height: 16px;
+}
+.report-allocation span {
+    flex-basis: 0;
+}
+.report-table-scroll {
+    overflow-x: auto;
+}
+.report-refunds {
+    min-width: 480px;
+    font-size: 12px;
+}
+.report-refunds th,
+.report-refunds td {
+    padding: 16px 12px;
+}
+
+@media print {
+    .spending-report {
+        background: white;
+        color: #30392f;
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    .spending-report .page-wrap {
+        max-width: none;
+        padding-inline: 0;
+    }
+    .spending-report .report-skip,
+    .spending-report .report-home {
+        display: none;
+    }
+    .spending-report .report-net,
+    .spending-report tr {
+        break-inside: avoid;
+    }
+    .spending-report .report-table-scroll {
+        overflow: visible;
+    }
+    .spending-report .report-refunds {
+        min-width: 0;
+    }
+    .spending-report .faq-item:not([open]) {
+        display: none;
+    }
+}
+
 @media (min-width: 1280px) {
     .hero-image {
         height: 548px;

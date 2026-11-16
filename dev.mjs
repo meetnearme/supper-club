@@ -13,12 +13,14 @@ const types = {
   '.woff2': 'font/woff2',
   '.txt': 'text/plain; charset=utf-8',
 };
-const port = Number(process.env.PORT) || 8000;
+const port = Number(process.env.PORT) || 8003;
 
 async function resolve(pathname) {
   // Netlify serves /thank-you and /thank-you/ alike, so ignore trailing slashes.
   const path = normalize(join('.', decodeURIComponent(pathname).replace(/\/+$/, '')));
   if (path.startsWith('..')) return null;
+  // Event records include private original exports and receipts, even in local previews.
+  if (path === 'records' || path.startsWith('records/')) return null;
   for (const candidate of [path, join(path, 'index.html'), `${path}.html`]) {
     try {
       if ((await stat(candidate)).isFile()) return candidate;
